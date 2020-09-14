@@ -612,6 +612,7 @@ function put (local, remote, cb){
 		write.rs = fs.createReadStream (local)
 				.on ("error", function (error){
 					write.error = error;
+					
 					write.ps.abort (errors.EIO);
 				})
 				.on ("close", function (){
